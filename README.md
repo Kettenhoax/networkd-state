@@ -28,6 +28,7 @@ systemctl edit networkd-state
 ```
 
 ```ini
+# restricts state updates to interface eth0
 [Service]
 ExecStart=
 ExecStart=/usr/lib/networkd_state/networkd_state -i eth0
@@ -37,7 +38,7 @@ To deploy as package, create a deb file.
 
 ```bash
 ./create_deb.bash
-# install the resulting ../*.deb files
+# install the resulting ../*.deb files on the target machine
 ```
 
 ## Dependencies
