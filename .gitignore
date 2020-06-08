@@ -1,0 +1,6 @@
+dist/
+deb_dist/
+debian/
+build/
+*.tar.gz
+*.egg-info

@@ -1,0 +1,9 @@
+[Unit]
+Description=network interface state manager
+After=systemd-networkd.service
+
+[Service]
+ExecStart=/usr/lib/networkd_state/networkd_state
+
+[Install]
+WantedBy=multi-user.target
