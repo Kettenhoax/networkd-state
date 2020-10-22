@@ -4,3 +4,4 @@ debian/
 build/
 *.tar.gz
 *.egg-info
+.pydistutils.cfg
