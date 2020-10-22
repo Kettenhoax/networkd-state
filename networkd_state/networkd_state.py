@@ -179,6 +179,9 @@ def main():
         '-s', '--state', help='target state that should trigger a notification', default='routable')
     args = parser.parse_args()
 
+    if not args.iface:
+        parser.error('Interfaces to manage required')
+
     if args.verbose:
         logging.basicConfig(level=logging.DEBUG)
     else:
