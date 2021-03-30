@@ -1,5 +1,20 @@
 # networkd-state: systemd targets for network interface states
 
+## Deprecation
+
+While I keep this project as an example how to use DBus to react to networkd events, I recommend to use the networkd-online service specifically to wait for routable networks.
+
+To wait for specific network links only, run `systemctl edit systemd-networkd-wait-online.service` and overwrite the interfaces it waits for, in this case eth0.
+Then you can depend on systemd-networkd-wait-online in your other units using `After=` directives.
+
+```
+[Service]
+ExecStart=
+ExecStart=/lib/systemd/systemd-networkd-wait-online -i eth0
+```
+
+## Summary
+
 `networkd-state` starts and stops systemd target units in reaction to network interface state changes.
 
 This is useful to start/stop applications for hot-pluggable ethernet devices connected to computers with multiple network interfaces, e.g. GigE vision cameras.
